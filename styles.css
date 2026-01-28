@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+section {
+  scroll-margin-top: 4vh;
+  padding: 12vh 35vw 18vh 15vw;
+}
+
+footer {
+  padding: 0vh 15vw 2vh 15vw;
+  display: flex;
+  align-self: last baseline;
+  justify-self: end;
+}
+
+section h3 {
+  margin: 12px 0px;
+}
+section p {
+  margin-top: 8px;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+#landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.welcome {
+  margin-bottom: 20px;
+}
+
+/* typing animation reference: https://css-tricks.com/snippets/css/typewriter-effect/ */
+.welcome span {
+  display: inline-block;
+  width: 16ch;
+  font-size: 42px;
+  font-family: monospace;
+  font-weight: 200;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid;
+
+  animation:
+    typing 2.5s steps(16, end),
+    blink-caret 0.75s 2.5s step-end infinite;
+}
+
+.welcome span.dark-mode {
+  border-right: 3px solid #e0e0e0;
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 16ch;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: inherit;
+  }
+}
+
+.welcome div {
+  font-size: 24px;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+nav {
+  font-size: 24px;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.right-nav {
+  position: fixed;
+  top: 12vh;
+  right: 15vw;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+#Education h3,
+#Experience h3,
+#Skills h3 {
+  margin-top: 18px;
+}
+
+#Education ul,
+#Experience ul,
+#Skills ul {
+  margin-left: 18px;
+}
+
+#Education li,
+#Experience li,
+#Skills li {
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.headlines {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.lightbulbs {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.lightbulbs i {
+  position: absolute;
+  top: 2.5px;
+  left: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbulbs .fa-regular {
+  opacity: 1;
+}
+
+.lightbulbs .fa-solid {
+  opacity: 0;
+}
+
+.dark-mode .lightbulbs .fa-regular {
+  opacity: 0;
+}
+.dark-mode .lightbulbs .fa-solid {
+  opacity: 1;
+}
+
+#gopher-container {
+  display: flex;
+  gap: 12px;
+  animation: glide 35s linear infinite;
+  padding: 15vh 0;
+}
+
+.dark-mode #gopher-container img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+@keyframes glide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(var(--shift));
+  }
+}
